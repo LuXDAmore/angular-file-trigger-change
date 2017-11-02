@@ -1,5 +1,5 @@
 # angular-file-trigger-change @ ngFileTriggerChange
-Angular Directive: trigger a change for input[type=file].
+Angular Directive: trigger a change for input[type="file"].
 
 # Usage / Installation
 - Add 'ngFileTriggerChange' to your modules;
@@ -7,12 +7,19 @@ Angular Directive: trigger a change for input[type=file].
 - You're ready.
 
 # Example
-  <input
-    type="file"
-    ng-model="vm.files"
-    ng-change="vm.fileChanged()"
-    ng-file-trigger-change
-    accept="image/*"
-    capture
-    multiple
-  />
+###### HTML
+`<input
+	type="file"
+	ng-model="vm.files"
+	ng-change="vm.fileChanged()"
+	ng-file-trigger-change
+	accept="image/*"
+	capture
+	multiple
+/>`
+###### Controller
+`vm.files = null;
+vm.changed = function() {
+	window.console.log( vm.files );
+	// Output --> The FileList
+};`
