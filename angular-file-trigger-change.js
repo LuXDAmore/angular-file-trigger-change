@@ -15,26 +15,30 @@
 // Module
 angular
 	.module( 'ngFileTriggerChange', [] )
-	.directive( 'ngFileTriggerChange', Directive )
+	.directive( 'ngFileTriggerChange', ngFileTriggerChange )
 ;
 
 // NgFileTrigger
-Directive.$inject = [];
+ngFileTriggerChange.$inject = [];
 
-function Directive() {
+function ngFileTriggerChange() {
 
 	var directive = {};
 
 	directive.restrict = 'A';
 	directive.require = '?ngModel';
+	directive.scope = {
+		ngModel: "=",
+	};
 	directive.link = link;
 
 	// Linking
-	function link( scope, element, attrs, NgModelController ) {
+	function link( scope, element, attrs, ngModelController ) {
 
-		if( ! NgModelController )
+		if( ! ngModelController )
 			return;
 
+		// onChange Function
 		function onChangeFunc( event ) {
 
 			var files = null;
@@ -42,13 +46,23 @@ function Directive() {
 			if( event.target && event.target.files )
 				files = event.target.files;
 
-			NgModelController.$setViewValue( files );
+			ngModelController.$setViewValue( files );
 
 		};
 		element.change( onChangeFunc );
 
+		// Destroy Event
+		scope.$on(
+			"$destroy",
+			function() {
+
+				element.off();
+
+			}
+		);
+
 	};
 
 	return directive;
-
+	
 };
