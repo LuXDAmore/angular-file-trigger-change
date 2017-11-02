@@ -12,57 +12,70 @@
 	/>
 */
 
-// Module
-angular
-	.module( 'ngFileTriggerChange', [] )
-	.directive( 'ngFileTriggerChange', ngFileTriggerChange )
-;
+/**
+ * @ngdoc function
+ * @name memoplans.controller
+ * @description
+ */
 
-// NgFileTrigger
-ngFileTriggerChange.$inject = [];
+(
+    function( document, window, angular ) {
+		'use strict';
+		
+		// Module
+		angular
+			.module( 'ngFileTriggerChange', [] )
+			.directive( 'ngFileTriggerChange', Directive )
+		;
 
-function ngFileTriggerChange() {
+		// NgFileTrigger
+		Directive.$inject = [];
 
-	var directive = {};
+		function Directive() {
 
-	directive.restrict = 'A';
-	directive.require = '?ngModel';
-	directive.scope = {
-		ngModel: "=",
-	};
-	directive.link = link;
+			var directive = {};
 
-	// Linking
-	function link( scope, element, attrs, ngModelController ) {
+			directive.restrict = 'A';
+			directive.require = '?ngModel';
+			directive.scope = {
+				ngModel: "=",
+			};
+			directive.link = link;
 
-		if( ! ngModelController )
-			return;
+			// Linking
+			function link( scope, element, attrs, ngModelController ) {
 
-		// onChange Function
-		function onChangeFunc( event ) {
+				if( ! ngModelController )
+					return;
 
-			var files = null;
+				// onChange Function
+				function onChangeFunc( event ) {
 
-			if( event.target && event.target.files )
-				files = event.target.files;
+					var files = null;
 
-			ngModelController.$setViewValue( files );
+					if( event.target && event.target.files )
+						files = event.target.files;
+
+					ngModelController.$setViewValue( files );
+
+				};
+				element.change( onChangeFunc );
+
+				// Destroy Event
+				scope.$on(
+					"$destroy",
+					function() {
+
+						element.off();
+
+					}
+				);
+
+			};
+
+			return directive;
 
 		};
-		element.change( onChangeFunc );
-
-		// Destroy Event
-		scope.$on(
-			"$destroy",
-			function() {
-
-				element.off();
-
-			}
-		);
-
-	};
-
-	return directive;
-	
-};
+		
+	}
+)( document, window, angular );
