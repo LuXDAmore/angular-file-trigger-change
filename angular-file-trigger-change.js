@@ -13,9 +13,9 @@
 */
 
 /**
- * @ngdoc function
- * @name memoplans.controller
- * @description
+ * @ngdoc function Directive
+ * @name directive ng-file-trigger-change
+ * @description trigger a file-change and a model-change.
  */
 
 (
