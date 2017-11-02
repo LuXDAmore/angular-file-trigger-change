@@ -7,12 +7,12 @@ Angular Directive: trigger a change for input[type=file].
 - You're ready.
 
 # Example
-<input
-  type="file"
-  ng-model="vm.files"
-  ng-change="vm.fileChanged()"
-  ng-file-trigger-change
-  accept="image/*"
-  capture
-  multiple
-/>
+  <input
+    type="file"
+    ng-model="vm.files"
+    ng-change="vm.fileChanged()"
+    ng-file-trigger-change
+    accept="image/*"
+    capture
+    multiple
+  />
