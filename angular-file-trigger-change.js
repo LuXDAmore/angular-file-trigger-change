@@ -1,15 +1,7 @@
 /*
-	Just add the directive to your file. Then you have the model in-sync.
-	You can use the 'ng-change' to. Ex.
-	<input
-		type="file"
-		ng-model="vm.files"
-		ng-change="vm.fileChanged()"
-		ng-file-trigger-change
-		accept="image/*"
-		capture
-		multiple
-	/>
+	- Add 'ngFileTriggerChange' to your modules;
+	- Add the Directive 'ng-file-trigger-change' to your html code;
+	- You're ready.
 */
 
 /**
