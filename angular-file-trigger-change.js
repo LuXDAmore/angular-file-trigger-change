@@ -15,13 +15,13 @@
 // Module
 angular
 	.module( 'ngFileTriggerChange', [] )
-	.directive( 'ngFileTriggerChange', ngFileTriggerChange )
+	.directive( 'ngFileTriggerChange', Directive )
 ;
 
 // NgFileTrigger
-ngFileTriggerChange.$inject = [];
+Directive.$inject = [];
 
-function ngFileTriggerChange() {
+function Directive() {
 
 	var directive = {};
 
