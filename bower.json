@@ -4,7 +4,7 @@
     "Luca Iaconelli <lucabelli@msn.com>"
   ],
   "description": "Angular Directive: trigger a change for input[type=file].",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "angular-file-trigger-change.js",
   "keywords": [
     "angular",
