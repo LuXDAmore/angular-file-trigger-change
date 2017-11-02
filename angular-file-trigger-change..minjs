@@ -1,0 +1,1 @@
+function ngFileTriggerChange(){var e={};return e.restrict="A",e.require="?ngModel",e.link=function(e,g,n,r){r&&g.change(function(e){var g=null;e.target&&e.target.files&&(g=e.target.files),r.$setViewValue(g)})},e}angular.module("ngFileTriggerChange",[]).directive("ngFileTriggerChange",ngFileTriggerChange),ngFileTriggerChange.$inject=[];
