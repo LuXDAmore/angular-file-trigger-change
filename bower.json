@@ -5,7 +5,7 @@
   ],
   "description": "Angular Directive: trigger a change for input[type=file].",
   "version": "1.0.0",
-  "main": "dist/angular-file-trigger-change.js",
+  "main": "angular-file-trigger-change.js",
   "keywords": [
     "angular",
     "angularjs",
